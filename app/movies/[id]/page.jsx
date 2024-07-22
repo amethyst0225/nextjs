@@ -1,12 +1,7 @@
-import {API_URL} from "../../(home)/page";
+import {API_URL} from "../../constants";
 import { Suspense } from "react";
-import MovieInfo from "../../../components/movie-info";
+import MovieInfo, {getMovie} from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
-
-export async function getMovie(id){
-	const response = await fetch(`${API_URL}/${id}`);
-	return response.json();
-}
 
 export async function generateMetadata({params: {id}}){
 	const movie = await getMovie(id);

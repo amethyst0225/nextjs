@@ -1,4 +1,4 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from '../app/constants';
 
 async function getCredits(id) {
 	const response = await fetch(`${API_URL}/${id}/credits`);
