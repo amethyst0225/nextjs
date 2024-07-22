@@ -3,23 +3,21 @@ import { Suspense } from "react";
 import MovieInfo from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
 
-async function getMovie(id){
-	await new Promise((resolve) => setTimeout(resolve, 5000));
+export async function getMovie(id){
 	const response = await fetch(`${API_URL}/${id}`);
 	return response.json();
 }
 
-async function getVideos(id) {
-	console.log(`Fetching videos: ${Date.now()}`);
-	await new Promise((resolve) => setTimeout(resolve, 5000));
-	const response = await fetch(`${API_URL}/${id}/videos`);
-	return response.json();
-  }
+export async function generateMetadata({params: {id}}){
+	const movie = await getMovie(id);
+	return{
+		title: movie.title, 
+	};
+}
 
 export default async function MovieDetail({params: {id},}){
 
 	return <div>
-		<h3>Movie detail page</h3>
 		<Suspense fallback={<h1>Loading movie info</h1>}>
 			<MovieInfo id={id}/>
 		</Suspense> 

@@ -2,6 +2,7 @@ import { LayoutRouter } from "next/dist/server/app-render/entry-base"
 import AboutUs from "./about-us/page"
 import Navigation from "../components/navigation";
 import { Metadata } from "next";
+import "../styles/global.css";
 
 export const metadata = {
   title :{
