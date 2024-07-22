@@ -10,7 +10,7 @@ export async function generateMetadata({params: {id}}){
 	};
 }
 
-export default async function MovieDetail({params: {id},}){
+export default async function MovieDetail({params: {id}}){
 
 	return <div>
 		<Suspense fallback={<h1>Loading movie info</h1>}>
